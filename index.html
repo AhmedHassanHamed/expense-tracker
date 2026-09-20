@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker | Track Your Spending</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+
+      <!-- Form -->
+      <form id="expense-form">
+        <input
+          type="text"
+          id="description"
+          placeholder="Description"
+          required
+        />
+        <input
+          type="number"
+          id="amount"
+          placeholder="Amount"
+          min="0.01"
+          step="0.01"
+          required
+        />
+
+        <input type="text" id="category" placeholder="Category" />
+
+        <button>Submit</button>
+      </form>
+
+      <h2 id="total">Total:0</h2>
+
+      <!-- Expense List -->
+      <ul id="expense-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
