@@ -10,13 +10,21 @@ let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 expenseForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  const amountValue = Number(amountInput.value);
+
   if (descriptionInput.value.trim() === "" || amountInput.value === "") {
+    return;
+  }
+
+  // منع إدخال مبلغ صفر أو سالب
+  if (!(amountValue > 0)) {
+    alert("Please enter an amount greater than 0.");
     return;
   }
 
   const newExpense = {
     description: descriptionInput.value.trim(),
-    amount: Number(amountInput.value),
+    amount: amountValue,
     category: categoryInput.value.trim() || "General",
     // Automatically Save Today's Date
     date: new Date().toLocaleDateString(),
@@ -28,6 +36,7 @@ expenseForm.addEventListener("submit", function (event) {
   descriptionInput.value = "";
   amountInput.value = "";
   categoryInput.value = "";
+  descriptionInput.focus();
 });
 
 function renderExpenses() {
@@ -83,6 +92,7 @@ function renderExpenses() {
     });
   });
 
-  totalDisplay.textContent = "Total: $" + total;
+  // .toFixed(2) هنا عشان يمنع ظهور أرقام كسرية طويلة بسبب تقريب الجمع العشري
+  totalDisplay.textContent = "Total: $" + total.toFixed(2);
 }
 renderExpenses();

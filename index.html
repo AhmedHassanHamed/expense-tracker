@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker | Track Your Spending</title>
+    <meta
+      name="description"
+      content="A simple, responsive expense tracker built with HTML, CSS, and JavaScript. Add, categorize, and delete expenses with a running total, saved in your browser."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -25,27 +30,87 @@
           type="text"
           id="description"
           placeholder="Description"
+          aria-label="Expense description"
           required
         />
         <input
           type="number"
           id="amount"
           placeholder="Amount"
+          aria-label="Expense amount"
           min="0.01"
           step="0.01"
           required
         />
 
-        <input type="text" id="category" placeholder="Category" />
+        <input
+          type="text"
+          id="category"
+          placeholder="Category"
+          aria-label="Expense category"
+        />
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
 
-      <h2 id="total">Total:0</h2>
+      <h2 id="total">Total: $0.00</h2>
 
       <!-- Expense List -->
       <ul id="expense-list"></ul>
     </div>
+
+    <!-- ============================== -->
+    <!-- Footer: Contact Links          -->
+    <!-- ============================== -->
+    <footer class="site-footer">
+      <p class="footer-heading">Let's Connect</p>
+      <div class="footer-links">
+        <a
+          href="https://ahmedhassanhamed.github.io/AhmedHassanHamed/"
+          target="_blank"
+          rel="noopener"
+          ><span class="footer-item"
+            ><img src="imgs/Ahmed.jpeg" alt="Portfolio" />Portfolio</span
+          ></a
+        >
+        <a href="https://wa.me/201147729020" target="_blank" rel="noopener"
+          ><span class="footer-item"
+            ><img src="imgs/WhatsApp.jpeg" alt="WhatsApp" />WhatsApp</span
+          >
+        </a>
+        <a href="mailto:ahmed.hassan.dev77@gmail.com"
+          ><span class="footer-item"
+            ><img src="imgs/Email.jpeg" alt="Email" />Email</span
+          >
+        </a>
+        <a
+          href="https://github.com/AhmedHassanHamed"
+          target="_blank"
+          rel="noopener"
+          ><span class="footer-item"
+            ><img src="imgs/GitHub.jpeg" alt="GitHub" />GitHub</span
+          >
+        </a>
+        <a
+          href="https://khamsat.com/user/hassanhamed_cz"
+          target="_blank"
+          rel="noopener"
+          ><span class="footer-item"
+            ><img src="imgs/Khmsat.jpeg" alt="Khamsat" />Khamsat</span
+          >
+        </a>
+        <!-- TODO: replace YOUR_USERNAME with your public Mostaql profile link -->
+        <a
+          href="https://mostaql.com/u/YOUR_USERNAME"
+          target="_blank"
+          rel="noopener"
+          ><span class="footer-item"
+            ><img src="imgs/Mostaql.jpeg" alt="Mostaql" />Mostaql</span
+          >
+        </a>
+      </div>
+      <p class="copyright">&copy; 2026 Ahmed Hassan. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
