@@ -6,8 +6,9 @@
     <title>Expense Tracker | Track Your Spending</title>
     <meta
       name="description"
-      content="A simple, responsive expense tracker built with HTML, CSS, and JavaScript. Add, categorize, and delete expenses with a running total, saved in your browser."
+      content="A simple, responsive expense tracker built with HTML, CSS, and JavaScript. Add, categorize, filter, export and delete expenses with a running total, saved in your browser."
     />
+    <meta name="theme-color" content="#0f172a" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,16 +22,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <h1>Expense Tracker</h1>
 
-      <!-- Form -->
       <form id="expense-form">
         <input
           type="text"
           id="description"
           placeholder="Description"
           aria-label="Expense description"
+          maxlength="80"
           required
         />
         <input
@@ -42,26 +43,40 @@
           step="0.01"
           required
         />
-
         <input
           type="text"
           id="category"
           placeholder="Category"
           aria-label="Expense category"
+          list="categories"
+          maxlength="30"
         />
-
-        <button type="submit">Submit</button>
+        <datalist id="categories"></datalist>
+        <button type="submit">Add expense</button>
       </form>
 
-      <h2 id="total">Total: $0.00</h2>
+      <h2 id="total" aria-live="polite">Total: $0.00</h2>
 
-      <!-- Expense List -->
+      <section
+        id="breakdown"
+        class="breakdown"
+        aria-label="Spending by category"
+        hidden
+      ></section>
+
+      <div class="toolbar">
+        <select id="filter" aria-label="Filter by category"></select>
+        <button type="button" id="export-btn" class="secondary-btn">
+          Export CSV
+        </button>
+        <button type="button" id="clear-btn" class="secondary-btn danger">
+          Clear all
+        </button>
+      </div>
+
       <ul id="expense-list"></ul>
-    </div>
+    </main>
 
-    <!-- ============================== -->
-    <!-- Footer: Contact Links          -->
-    <!-- ============================== -->
     <footer class="site-footer">
       <p class="footer-heading">Let's Connect</p>
       <div class="footer-links">
@@ -70,45 +85,53 @@
           target="_blank"
           rel="noopener"
           ><span class="footer-item"
-            ><img src="imgs/Ahmed.jpeg" alt="Portfolio" />Portfolio</span
+            ><img src="imgs/Ahmed.jpeg" alt="" />Portfolio</span
           ></a
         >
         <a href="https://wa.me/201147729020" target="_blank" rel="noopener"
           ><span class="footer-item"
-            ><img src="imgs/WhatsApp.jpeg" alt="WhatsApp" />WhatsApp</span
-          >
-        </a>
+            ><img src="imgs/WhatsApp.jpeg" alt="" />WhatsApp</span
+          ></a
+        >
         <a href="mailto:ahmed.hassan.dev77@gmail.com"
           ><span class="footer-item"
-            ><img src="imgs/Email.jpeg" alt="Email" />Email</span
-          >
-        </a>
+            ><img src="imgs/Email.jpeg" alt="" />Email</span
+          ></a
+        >
         <a
           href="https://github.com/AhmedHassanHamed"
           target="_blank"
           rel="noopener"
           ><span class="footer-item"
-            ><img src="imgs/GitHub.jpeg" alt="GitHub" />GitHub</span
-          >
-        </a>
+            ><img src="imgs/GitHub.jpeg" alt="" />GitHub</span
+          ></a
+        >
         <a
           href="https://khamsat.com/user/hassanhamed_cz"
           target="_blank"
           rel="noopener"
           ><span class="footer-item"
-            ><img src="imgs/Khmsat.jpeg" alt="Khamsat" />Khamsat</span
-          >
-        </a>
+            ><img src="imgs/Khmsat.jpeg" alt="" />Khamsat</span
+          ></a
+        >
         <!-- TODO: replace YOUR_USERNAME with your public Mostaql profile link -->
         <a
-          href="https://mostaql.com/u/YOUR_USERNAME"
+          href="https://mostaql.com/u/Ahmed_Hassan_CZ"
           target="_blank"
           rel="noopener"
           ><span class="footer-item"
-            ><img src="imgs/Mostaql.jpeg" alt="Mostaql" />Mostaql</span
-          >
-        </a>
+            ><img src="imgs/Mostaql.jpeg" alt="" />Mostaql</span
+          ></a
+        >
       </div>
+      <a
+        href="https://khamsat.com/programming/custom-website-development/4475551-%D8%B5%D9%81%D8%AD%D8%A9-%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9-%D9%85%D8%B5%D8%B1%D9%88%D9%81%D8%A7%D8%AA-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D8%A9-%D9%88%D8%B3%D8%B1%D9%8A%D8%B9%D8%A9"
+        class="buy-btn"
+        target="_blank"
+        rel="noopener"
+        >Buy this project on Khamsat</a
+      >
+
       <p class="copyright">&copy; 2026 Ahmed Hassan. All rights reserved.</p>
     </footer>
 
